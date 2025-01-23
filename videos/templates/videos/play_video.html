@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>播放视频</title>
+</head>
+<body>
+    <h1>播放视频</h1>
+    <video width="800" controls>
+        <source src="{{ video_path|safe }}" type="video/mp4">
+        您的浏览器不支持视频播放。
+    </video>
+    <br>
+    <a href="/">返回视频列表</a>
+</body>
+</html>

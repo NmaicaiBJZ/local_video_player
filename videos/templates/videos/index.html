@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>视频列表</title>
+</head>
+<body>
+    <h1>视频列表</h1>
+    <ul>
+        {% for video in videos %}
+        <li><a href="{% url 'play_video' video %}">{{ video }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

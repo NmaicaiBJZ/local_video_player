@@ -22,4 +22,4 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('',include('videos.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)       # 对静态文件进行访问，当url为 /media/。。 时，访问存放为根目录下 /media/中的文件

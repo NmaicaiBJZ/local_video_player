@@ -1,15 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>播放视频</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin: 20px 0;
+        }
+
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2196F3;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            display: inline-block;
+            border: 2px solid #2196F3;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        /* 手机端优化 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            a {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+        }
+
+        /* 更小屏幕优化 */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>播放视频</h1>
-    <video width="800" controls>
-        <source src="/stream/{{ video_path|safe }}" type="video/mp4">
-        您的浏览器不支持视频播放。
-    </video>
-    <br>
-    <a href="/">返回视频列表</a>
+    <div class="container">
+        <h1>播放视频</h1>
+        <video controls>
+            <source src="/stream/{{ video_path|safe }}" type="video/mp4">
+            您的浏览器不支持视频播放。
+        </video>
+        <br>
+        <a href="{% url 'video_folder_view' current_path %}">返回视频列表</a>
+    </div>
 </body>
 </html>

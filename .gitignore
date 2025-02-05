@@ -49,3 +49,4 @@ share/python-wheels/
 *.pyo
 *.pyd
 
+.DS_Store
